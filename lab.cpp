@@ -4,6 +4,14 @@ const int ARRAY_SIZE = 10;
 
 void displayArray(const int arr[]); 
 
+void traverseArray(int arr[], int size) {
+    cout << "Array elements: ";
+    for (int i = 0; i < size; ++i) {
+        cout << arr[i] << " ";  // Access each element of the array
+    }
+    cout << endl;
+}
+
 void enterNumbers(int arr[]) {
     int num;
     cout << "Enter numbers for the array (enter -1 to stop):" << endl;
@@ -170,7 +178,7 @@ int main() {
                 break;
             case 2:
                 fillArray(myArray);
-                cout << "Array has been filled with default values.\n";
+                cout << "Array has been filled with default values.\n";                
                 break;
             case 3:
                 displayArray(myArray);
