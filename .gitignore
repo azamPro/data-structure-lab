@@ -1,0 +1,29 @@
+# Ignore object files and binary files
+*.o
+*.exe
+*.out
+
+# Ignore compiled dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Ignore temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Ignore build directories
+/build/
+/dist/
+/Debug/
+/Release/
+
+# Ignore IDE specific files (for example, VSCode or JetBrains IDEs)
+.vscode/
+.idea/
+
+# Ignore generated files from Visual Studio
+*.vcxproj
+*.sln
