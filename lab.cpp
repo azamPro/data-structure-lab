@@ -2,11 +2,10 @@
 using namespace std;
 const int ARRAY_SIZE = 10;
 
-void displayArray(const int arr[]);  // Declare the function prototype here
+void displayArray(const int arr[]); 
 
 void enterNumbers(int arr[]) {
     int num;
-
     cout << "Enter numbers for the array (enter -1 to stop):" << endl;
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         cout << "Enter number " << i + 1 << ": ";
@@ -17,7 +16,7 @@ void enterNumbers(int arr[]) {
         arr[i] = num;
     }
     cout << "Array after inserting values: " << endl;
-    displayArray(arr);  // Call displayArray() without embedding it in cout
+    displayArray(arr);  
 }
 
 void fillArray(int arr[]) {
@@ -56,7 +55,7 @@ void insert(int arr[], int num) {
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         if (arr[i] == 0) { 
             arr[i] = num;  
-            cout<< "inserted..."<< endl;
+            cout << "Inserted..." << endl;
             return;        
         }
     }
@@ -68,17 +67,16 @@ void del(int arr[], int pos) {
         cout << "Invalid position!" << endl;
         return;
     }
-
     for (int i = pos; i < ARRAY_SIZE - 1; ++i) {
         arr[i] = arr[i + 1];
     }
-
     arr[ARRAY_SIZE - 1] = 0;
 }
-int findLoc(int arr[], int num){
+
+int findLoc(int arr[], int num) {
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         if (arr[i] > num) {     
-            return (i);
+            return i;
         }
     }
     return -1;
@@ -95,65 +93,62 @@ void BubbleSort(int arr[]) {
         }
     }
 }
+
 int LinearSearch(int arr[], int key) {
     for (int i = 0; i < ARRAY_SIZE; ++i) {
         if (arr[i] == key) {
-            return i+1; 
+            return i + 1; 
         }
     }
     return -1; 
 }
+
 int BinarySearch(int arr[], int key) {
     BubbleSort(arr);
     int low = 0;
     int high = ARRAY_SIZE - 1;
     while (low <= high) {
-        int mid = (low + high) / 2; // Find the middle element
-
+        int mid = (low + high) / 2;
         if (arr[mid] == key) {
-            return mid + 1; // Return the position (1-based index)
+            return mid + 1;
         } else if (arr[mid] < key) {
-            low = mid + 1; // Search in the right half
+            low = mid + 1;
         } else {
-            high = mid - 1; // Search in the left half
+            high = mid - 1;
         }
     }
-
-    return -1; // Key not found
+    return -1;
 }
 
-
-void choseSearchTyoe(int arr[], int key){
+void choseSearchTyoe(int arr[], int key) {
     int numberChoase;
-    cout<< "chose your favorate search:"<< endl;
-    cout<< "[1] Linner search"<< endl;
-    cout<< "[2] Binary search"<< endl;
-    cout<< "enter the number:"<< endl;
+    cout << "Choose your favorite search:" << endl;
+    cout << "[1] Linear search" << endl;
+    cout << "[2] Binary search" << endl;
+    cout << "Enter the number: ";
     cin >> numberChoase;
-    if (numberChoase == 1) {  // Use == for comparison, not =
-            int index = LinearSearch(arr, key);
-            if (index == -1) {
-                cout << "Key (" << key << ") not found using Linear Search." << endl;
-            } else {
-                cout << "The index for (" << key << ") is = " << index << endl;
-            }
-        } else if (numberChoase == 2) {
-            int index = BinarySearch(arr, key);
-            if (index == -1) {
-                cout << "Key (" << key << ") not found using Binary Search." << endl;
-            } else {
-                cout << "The index for (" << key << ") is = " << index << endl;
-            }
+    if (numberChoase == 1) { 
+        int index = LinearSearch(arr, key);
+        if (index == -1) {
+            cout << "Key (" << key << ") not found using Linear Search." << endl;
         } else {
-            cout << "Invalid number, please choose 1 or 2." << endl;
+            cout << "The index for (" << key << ") is = " << index << endl;
+        }
+    } else if (numberChoase == 2) {
+        int index = BinarySearch(arr, key);
+        if (index == -1) {
+            cout << "Key (" << key << ") not found using Binary Search." << endl;
+        } else {
+            cout << "The index for (" << key << ") is = " << index << endl;
+        }
+    } else {
+        cout << "Invalid number, please choose 1 or 2." << endl;
     }
 }
 
 int main() {
     int myArray[ARRAY_SIZE] = {0}; 
-    int num,choice;
-    
-    // Menu loop to allow user to perform various actions
+    int num, choice;
     while (true) {
         cout << "\n========= MENU =========\n";
         cout << "1. Enter numbers into the array\n";
@@ -169,37 +164,36 @@ int main() {
         cout << "==========================\n";
         cout << "Enter your choice: ";
         cin >> choice;
-
         switch (choice) {
             case 1:
-                enterNumbers(myArray);  // Allows user to manually input numbers
+                enterNumbers(myArray);
                 break;
             case 2:
-                fillArray(myArray);  // Fills array with default values
+                fillArray(myArray);
                 cout << "Array has been filled with default values.\n";
                 break;
             case 3:
-                displayArray(myArray);  // Displays the current state of the array
+                displayArray(myArray);
                 break;
             case 4:
                 cout << "Enter the number to insert: ";
                 cin >> num;
-                insert(myArray, num);  // Inserts a number
+                insert(myArray, num);
                 break;
             case 5:
                 cout << "Enter the position to delete (0 to " << ARRAY_SIZE - 1 << "): ";
                 cin >> num;
-                del(myArray, num);  // Deletes a number at the specified position
+                del(myArray, num);
                 cout << "Number deleted.\n";
                 break;
             case 6:
-                BubbleSort(myArray);  // Sorts the array using Bubble Sort
+                BubbleSort(myArray);
                 cout << "Array has been sorted.\n";
                 break;
             case 7:
                 cout << "Enter the number to search: ";
                 cin >> num;
-                choseSearchTyoe(myArray, num);  // Asks user to choose Linear or Binary search
+                choseSearchTyoe(myArray, num);
                 break;
             case 8:
                 isArrayFull(myArray) ? cout << "The array is full.\n" : cout << "The array is not full.\n";
@@ -209,7 +203,7 @@ int main() {
                 break;
             case 0:
                 cout << "Exiting program.\n";
-                return 0;  // Exits the program
+                return 0;
             default:
                 cout << "Invalid choice, please try again.\n";
                 break;
