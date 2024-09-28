@@ -70,7 +70,7 @@ void insert(int arr[], int num) {
     cout << "Array is full, cannot insert " << num << "." << endl;
 }
 
-void del(int arr[], int pos) {
+void Delete(int arr[], int pos) {
     if (pos < 0 || pos >= ARRAY_SIZE) {
         cout << "Invalid position!" << endl;
         return;
@@ -191,7 +191,7 @@ int main() {
             case 5:
                 cout << "Enter the position to delete (0 to " << ARRAY_SIZE - 1 << "): ";
                 cin >> num;
-                del(myArray, num);
+                Delete(myArray, num);
                 cout << "Number deleted.\n";
                 break;
             case 6:
