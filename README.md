@@ -27,7 +27,7 @@ For Windows, use MinGW or any other C++ compiler (like Visual Studio). For Linux
    After cloning the repository, open Command Prompt or PowerShell and navigate to the project directory. Then, compile the C++ file with the following command:
 
    ```bash
-   g++ -o lab main.cpp
+   g++ -o lab lab.cpp
 
 2. **Run the executable**:
   Once compiled, run the program using:
