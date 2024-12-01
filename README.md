@@ -35,7 +35,7 @@ For Windows, use MinGW or any other C++ compiler (like Visual Studio). For Linux
 
    ```bash
    .\lab.exe
-  ```
+
 The program will now run in the terminal, displaying a menu of options to perform operations such as inserting, deleting, or searching in the array.
 
 ## How to Run the Code Using an Online Compiler
