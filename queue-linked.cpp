@@ -7,7 +7,6 @@ struct QUEUE {
     QUEUE* Next;    
 };
 
-// Global variables for the queue
 QUEUE* FRONT = NULL, * REAR = NULL;
 
 // Function to Enqueue an item into the queue
@@ -16,11 +15,11 @@ void Enqueue(int ITEM) {
     NewNode->Info = ITEM;
     NewNode->Next = NULL;
 
-    if (REAR == NULL) {          // If queue is empty
+    if (REAR == NULL) {          
         FRONT = REAR = NewNode;
     }
     else {
-        REAR->Next = NewNode;    // Append to the rear
+        REAR->Next = NewNode;    
         REAR = NewNode;
     }
     cout << "Enqueued: " << ITEM << endl;

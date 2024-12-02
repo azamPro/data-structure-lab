@@ -18,12 +18,12 @@ int precedence(char op) {
 string infixToPostfix(string infix) {
     stack<char> s;
     string postfix;
-    s.push('(');  // Initial '(' to handle precedence
-    infix += ')'; // Append ')' at the end to close everything
+    s.push('(');  
+    infix += ')'; 
 
     for (char ch : infix) {
         if (isdigit(ch)) {
-            postfix += ch; // Append operand directly to postfix
+            postfix += ch; 
         }
         else if (ch == '(') {
             s.push(ch);
@@ -33,9 +33,9 @@ string infixToPostfix(string infix) {
                 postfix += s.top();
                 s.pop();
             }
-            s.pop(); // Remove the '(' from the stack
+            s.pop(); 
         }
-        else { // Operator encountered
+        else { 
             while (!s.empty() && precedence(s.top()) >= precedence(ch)) {
                 postfix += s.top();
                 s.pop();
@@ -52,7 +52,7 @@ int evaluatePostfix(string postfix) {
 
     for (char ch : postfix) {
         if (isdigit(ch)) {
-            s.push(ch - '0'); // Convert char to int
+            s.push(ch - '0'); 
         }
         else {
             int op2 = s.top(); s.pop();
